@@ -1,14 +1,51 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="L'informatique quantique et son impact sur le monde.">
+
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#333333">
+
     <link rel="stylesheet" href="css/webslides.css" >
-    <title>Document</title>
+    <title>La dream team</title>
 </head>
+
 <body>
+
+    <header role="banner">
+      <nav role="navigation">
+        <p class="logo"><a href="index.html" title="WebSlides">WebSlides</a></p>
+        <ul>
+          <li class="github">
+            <a rel="external" href="https://github.com/webslides/webslides" title="Github">
+              <svg class="fa-github">
+                <use xlink:href="#fa-github"></use>
+              </svg>
+              <em>WebSlides</em>
+            </a>
+          </li>
+          <li class="twitter">
+            <a rel="external" href="https://twitter.com/webslides" title="Twitter">
+              <svg class="fa-twitter">
+                <use xlink:href="#fa-twitter"></use>
+              </svg>
+              <em>@WebSlides</em>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+      
     <main  role="main">
-        <article id="webslide" class="horizontal">
+        <article id="webslide" class="vertical">
+            <!-- Quick Guide
+            - Each parent <section> in the <article id="webslides"> element is an individual slide.
+            - Vertical sliding = <article id="webslides" class="vertical">
+            - <div class="wrap"> = container 90% / <div class="wrap size-50"> = 45%;
+            -->
             <!-- Slide 1 -->
              <section>
                 Slide 1
@@ -20,9 +57,19 @@
         </article>
     </main>
 
+    <!-- A global footer
+
+     <footer role="contentinfo">
+      <div class="wrap">
+        <p>An <a href="https://github.com/webslides/webslides">open source solution</a>, by <a href="https://twitter.com/webslides">@webslides</a>.</p>
+      </div>
+    </footer>  -->
+
     <script src="js/webslides.min.js" > </script>
     <script >
         globalThis.ws = new WebSlide()
     </script>
+
 </body>
+
 </html>
