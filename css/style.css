@@ -1,0 +1,29 @@
+@font-face {
+    font-family: HelveticaNowDisplayMedium;
+    font-style: normal;
+    src:url(Fonts/HelveticaNowDisplayMedium.ttf)
+}
+
+@font-face {
+    font-family: HelveticaNowDisplay;
+    font-style: normal;
+    src:url(Fonts/HelveticaNowDisplay.ttf)
+}
+
+@font-face {
+    font-family: HelveticaNowDisplayBold;
+    font-weight: 700;
+    font-style: bold;
+    src:url(Fonts/HelveticaNowDisplayBold.ttf)
+}
+
+@font-face {
+    font-family: HelveticaNowText;
+    font-weight: 400;
+    font-style: normal;
+    src:url(Fonts/HelveticaNowText.ttf)
+}
+
+div h1 {
+    font-family: HelveticaNowDisplayBold;
+}
