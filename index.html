@@ -9,16 +9,29 @@
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="theme-color" content="#333333">
 
+    <!--animation facile -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <!--classes de webslide -->
     <link rel="stylesheet" href="css/webslides.css" >
+    <!--pour la ré-écriture -->
     <link rel="stylesheet" href="css/style.css" >
+    <!--pour les particules en fond -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <title>La dream team</title>
 </head>
 
 <body>
 
+    <div id="particles-js"></div>
+
+    <script>
+        particlesJS.load('particles-js', 'assets/particles/particles.json', function(){
+            console.log('particles.json chargé...')
+        })
+    </script>
       
     <main  role="main">
-        <article id="webslide" class="vertical">
+        <article id="webslide" class="horizontal">
             <!-- Quick Guide
             - Each parent <section> in the <article id="webslides"> element is an individual slide.
             - Vertical sliding = <article id="webslides" class="vertical">
@@ -27,10 +40,8 @@
 
             <!-- Slide 1 -->
              <section>
-                <span class="background" style="background-image:url('images/davinci.png')"></span>
-                
-                <div class="wrap size-50">
-                    <h1> TITRE </h1>
+                <div class="wrap">
+                    <h4 class="animate__animated animate__slideInDown"> Titre</h4>
                 </div>
              </section>
 

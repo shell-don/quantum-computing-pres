@@ -1,12 +1,6 @@
-Helloo 
+STACK : HTML5, CSS3, JAVASCRIPT
 
-j'ai recherché des outils pour faire des présentations et j'ai trouvé deux trucs
- qui ont l'air bien je te laisse regarder et me dire si c'est ce que t'imaginais ou pas...
-
-1.
- https://webslides.tv/demos/
-
- 2.
- https://revealjs.com/?demo
-
- Ou alors on part sur un front fait avec l'IA, as u want...
+CLASSES :
+ - webslide (pour les slides) - https://webslides.tv/demos/.
+ - animate (pour les animations) - https://animate.style.
+ - particle.js (pour le fond animé) - https://vincentgarreau.com/particles.js/.
