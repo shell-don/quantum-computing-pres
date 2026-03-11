@@ -1,0 +1,12 @@
+Helloo 
+
+j'ai recherché des outils pour faire des présentations et j'ai trouvé deux trucs
+ qui ont l'air bien je te laisse regarder et me dire si c'est ce que t'imaginais ou pas...
+
+1.
+ https://webslides.tv/demos/
+
+ 2.
+ https://revealjs.com/?demo
+
+ Ou alors on part sur un front fait avec l'IA, as u want...
