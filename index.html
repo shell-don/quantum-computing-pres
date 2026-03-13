@@ -17,6 +17,12 @@
     <link rel="stylesheet" href="css/style.css" >
     <!--pour les particules en fond -->
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    
+    <!--icon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon/favicon-16x16.png">
+    <link rel="manifest" href="assets/images/favicon/site.webmanifest">
     <title>La dream team</title>
 </head>
 
@@ -31,7 +37,7 @@
     </script>
       
     <main  role="main">
-        <article id="webslide" class="horizontal">
+        <article id="webslides" class="vertical">
             <!-- Quick Guide
             - Each parent <section> in the <article id="webslides"> element is an individual slide.
             - Vertical sliding = <article id="webslides" class="vertical">
@@ -54,17 +60,25 @@
         </article>
     </main>
 
-    <!-- A global footer
-
-     <footer role="contentinfo">
-      <div class="wrap">
-        <p>An <a href="https://github.com/webslides/webslides">open source solution</a>, by <a href="https://twitter.com/webslides">@webslides</a>.</p>
-      </div>
-    </footer>  -->
-
     <script src="js/webslides.min.js" > </script>
     <script >
-        globalThis.ws = new WebSlide()
+        globalThis.ws = new WebSlides({
+            slideOffset: 15,        
+            autoslide: false,       
+            loop: false,            
+            navigateOnScroll: true, 
+            scrollingStep: 50,      
+            startSlide: 1,          
+
+            showIndex: false,       
+            hash: true,             
+            keyboard: true,         
+            touch: true, 
+
+            changeOnClick: false,   
+            minWheelDelta: 40,      
+            responsive: true,     
+            });
     </script>
 
 </body>
