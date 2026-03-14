@@ -6,8 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="L'informatique quantique et son impact sur le monde.">
 
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="theme-color" content="#333333">
+    <!-- pour IOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Dream Team">
+
+    <!-- pour Windows -->
+    <meta name="msapplication-TileColor" content="#333333">
 
     <!--animation facile -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
@@ -43,20 +48,72 @@
             - Vertical sliding = <article id="webslides" class="vertical">
             - <div class="wrap"> = container 90% / <div class="wrap size-50"> = 45%;
             -->
+            <section class="bg-black aligncenter">
 
-            <!-- Slide 1 -->
+                <header>
+                    <!--.wrap or <nav> = container 1200px -->
+                    <div class="wrap">
+                        <p><span class="alignright">Nathan Node-Langlois</span></p>
+                        <p><span class="alignleft">Mathis Pigassou</span></p>
+                    </div>
+                </header>
+
+                <div class="wrap">
+                    <h2>What are the implications of quantum computing for cybersecurity ?</h2>
+                    <p>From atoms to quantum supremacy.</p>
+                </div>
+            </section>
+
+            <!-- How is it use ? -->
              <section>
                 <div class="wrap">
-                    <h4 class="animate__animated animate__slideInDown"> Titre</h4>
+                    <h1 class="aligncenter">How is it useful ? </h1>
+                    <ul class="grid">
+                        <li class="column">
+                            <h2>Chemistry</h2>
+                            <h4><bold>Molecular Simulation</bold></h4>
+                            <p>As each spin orbital corresponds to a qubit in the quantum simulation algorithm, a quantum computer with as few as 100 logical qubits could perform calculations beyond the reach of classical computation.</p>
+                        </li>
+                        <li class="column">
+                            <h3>Physics</h3>
+                            <p>Description de la feature.</p>
+                        </li>
+                        <li class="column">
+                            <h3>Machine learning</h3>
+                            <p>Thanks to the Harrow, Hassidim and Lloyd algorithm.</p>
+                        </li>
+                    </ul>
                 </div>
-             </section>
+            </section>
 
-             <!-- Slide 2 -->
+             <!-- citation -->
              <section>
                 <div class="wrap">
-                    <h1> Slide 1 </h1>
+                    <blockquote>
+                        <h3 class="alignleft">"It is likely that a quantum computer capable of breaking 2000-bit RSA in a matter of hours could be built by 2030 for a budget of about a billion dollars."</h3>
+                        <p class="alignright"> NIST IR 8105 </p>
+                    </blockquote>
                 </div>
-             </section>
+                </section>
+
+                <!-- Conclusion -->
+                <section class="bg-black aligncenter">
+                    <div class="wrap">
+                        <h1>Thanks for watching !</h1>
+                        <p>Questions ? </p>
+                    </div>
+                    <footer>
+                        <div class="wrap">
+                            <p>
+                                <span class="alignleft"> 18</span>
+                                <span class="aligncenter"> 03 </span>
+                                <span class="alignright"> 2026 </span>
+                            </p>
+                        </div>
+                    </footer>
+                </section>
+
+
         </article>
     </main>
 
