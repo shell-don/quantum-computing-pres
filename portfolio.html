@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,19 +9,20 @@
     <!-- CSS -->
     <link rel="stylesheet" href="css/style.css"> <!-- Existing Fonts/Styles -->
     <link rel="stylesheet" href="css/portfolio.css"> <!-- New Design System Styles -->
-    
+
     <!-- GSAP for Scrolling Animations -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    
+
     <!-- Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
+
 <body class="bg-deep-space text-off-white">
 
     <!-- Canvas for Organic Background Blobs -->
     <canvas id="quantum-bg"></canvas>
-    
+
     <!-- Custom Cursor -->
     <div class="custom-cursor" id="custom-cursor"></div>
 
@@ -28,6 +30,7 @@
     <nav class="sticky-nav">
         <div class="nav-container">
             <span class="logo">M&amp;N</span>
+            <a href="presentation.html" class="nav-presentation-link">Présentation</a>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#team">The Team</a></li>
@@ -45,7 +48,8 @@
             <div class="container hero-content">
                 <p class="subtitle reveal">L2 IT & Management • Semester 2</p>
                 <h1 class="scramble-text display-title" data-final="Mathis' & Nathan's Portfolio">Loading...</h1>
-                <p class="hero-description reveal">Exploring the intersection of Quantum Computing and Post-Quantum Cryptography.</p>
+                <p class="hero-description reveal">Exploring the intersection of Quantum Computing and Post-Quantum
+                    Cryptography.</p>
                 <a href="#team" class="btn-primary reveal">Discover the Project <i data-lucide="arrow-down"></i></a>
             </div>
         </section>
@@ -55,14 +59,21 @@
             <div class="container">
                 <h2 class="section-title scramble-text" data-final="The Dream Team">Loading...</h2>
                 <div class="grid-2col" data-stagger="true">
-                    
+
                     <article class="card magnetic-card reveal">
                         <div class="card-glow"></div>
                         <div class="card-content">
                             <h3>Mathis</h3>
                             <p class="role">Geopolitics & Applied Mathematics</p>
-                            <p>After two years of French CPGE in Geopolitics and Applied Mathematics, I have decided going towards things I like to do rather than something I should do. I have discovered informatics during those years and I preferred to explore various topics from core computer's logic to low level programming language.</p>
-                            <p>More personally, I love swimming, because it’s a space where my overthinking brain stops yelling, and I can truly enjoy the moment. Thus, I worked as a lifeguard for 4 summers because it was in tune with my personality and skills. Finally, when it comes to my future, I would like to continue to stay in the right balance between my private and professional life.</p>
+                            <p>After two years of French CPGE in Geopolitics and Applied Mathematics, I have decided
+                                going towards things I like to do rather than something I should do. I have discovered
+                                informatics during those years and I preferred to explore various topics from core
+                                computer's logic to low level programming language.</p>
+                            <p>More personally, I love swimming, because it’s a space where my overthinking brain stops
+                                yelling, and I can truly enjoy the moment. Thus, I worked as a lifeguard for 4 summers
+                                because it was in tune with my personality and skills. Finally, when it comes to my
+                                future, I would like to continue to stay in the right balance between my private and
+                                professional life.</p>
                         </div>
                     </article>
 
@@ -71,9 +82,18 @@
                         <div class="card-content">
                             <h3>Nathan Nodé-Langlois</h3>
                             <p class="role">Math & Physics / Tech Enthusiast</p>
-                            <p>During my youth I was always wondering what I would do later, because to my eyes everything was really interesting, but nothing was interesting enough. Until the end of highschool, I was more into mathematics and physics and was thinking about becoming an engineer.</p>
-                            <p>And then someday I realised that I just loved learning and discovering new things and that wasn’t applying just to math and physics. So I decided not to do a "classe préparatoire" and to study at university instead, to have a lot more freedom to experience many kinds of things.</p>
-                            <p>Thus, my goal in life is just to experience the most of what this world has to offer. Professionally, this means that I want to acquire a lot of knowledge and work in various areas. So my dream career would be to be an entrepreneur and to build a company, leveraging my tech knowledge with the support of my managerial skills.</p>
+                            <p>During my youth I was always wondering what I would do later, because to my eyes
+                                everything was really interesting, but nothing was interesting enough. Until the end of
+                                highschool, I was more into mathematics and physics and was thinking about becoming an
+                                engineer.</p>
+                            <p>And then someday I realised that I just loved learning and discovering new things and
+                                that wasn’t applying just to math and physics. So I decided not to do a "classe
+                                préparatoire" and to study at university instead, to have a lot more freedom to
+                                experience many kinds of things.</p>
+                            <p>Thus, my goal in life is just to experience the most of what this world has to offer.
+                                Professionally, this means that I want to acquire a lot of knowledge and work in various
+                                areas. So my dream career would be to be an entrepreneur and to build a company,
+                                leveraging my tech knowledge with the support of my managerial skills.</p>
                         </div>
                     </article>
 
@@ -85,15 +105,24 @@
         <section id="case" class="section case-section">
             <div class="container">
                 <h2 class="section-title scramble-text" data-final="The Quantum Horizon">Loading...</h2>
+                <div class="case-intro reveal">
+                    <h3>What is Quantum Computing?</h3>
+                    <p>Quantum computing is a new technology on the horizon. It’s a new type of computer that exploits
+                        quantum principles and mechanisms to achieve super fast calculations. This breakthrough has
+                        major implications in the IT world, in particular in cryptography and digital security.</p>
+                    <p class="highlight-issue">Our issue: The advent of quantum computing, and his implications in
+                        cryptography.</p>
+                </div>
                 <div class="case-grid">
                     <div class="case-text reveal">
-                        <h3>What is Quantum Computing?</h3>
-                        <p>Quantum computing is a new technology on the horizon. It’s a new type of computer that exploits quantum principles and mechanisms to achieve super fast calculations. This breakthrough has major implications in the IT world, in particular in cryptography and digital security.</p>
-                        <p>Our issue: The advent of quantum computing, and his implications in cryptography.</p>
-                        
                         <h4>Conventional vs. Quantum</h4>
-                        <p>All the things that a computer does, it achieves it using a really simple thing, a bit. In theory, a bit is a number that can take two values, either 1 or 0. By combining multiple bits you obtain binary code. In reality, a bit is an electrical impulse.</p>
-                        <p>Quantum computers replace this electrical impulse with other atomic phenomenons with different behaviors, with different possibilities. It’s not a computer under steroïds that can do anything faster, but a new specialized type of computer with different capabilities. Most of it is super fast mathematical computing.</p>
+                        <p>All the things that a computer does, it achieves it using a really simple thing, a bit. In
+                            theory, a bit is a number that can take two values, either 1 or 0. By combining multiple
+                            bits you obtain binary code. In reality, a bit is an electrical impulse.</p>
+                        <p>Quantum computers replace this electrical impulse with other atomic phenomenons with
+                            different behaviors, and different possibilities. It’s not a computer under steroïds that
+                            can do anything faster, but a new specialized type of computer with different capabilities.
+                            Most of it is super fast mathematical computing.</p>
                     </div>
                     <div class="case-visual reveal">
                         <div class="qubit-visualizer">
@@ -103,7 +132,15 @@
                             </div>
                             <div class="qubit-container">
                                 <span class="label">Qubit (Superposition)</span>
-                                <div class="superposition-orb"></div>
+                                <div class="qubit-orb-wrapper">
+                                    <div class="superposition-orb"></div>
+                                    <div class="qubit-particles">
+                                        <span class="p1">0</span>
+                                        <span class="p2">1</span>
+                                        <span class="p3">0</span>
+                                        <span class="p4">1</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -121,19 +158,31 @@
                 <div class="scrolling-content">
                     <article class="content-block reveal">
                         <h3>The Collapse of Current Encryption</h3>
-                        <p>Suppose you have a stable quantum computer. Then some complex mathematical problems which are the cornerstone of the actual encryption methods for data security, become solvable. Many of the actual security protocols would be breakable in a reasonable amount of time, exposing a lot of sensitive data.</p>
-                        <p>According to NIST - the US agency for technology standards in the industry, it’s possible that such a computer could exist by 2030, at the cost of 1 billion dollars.</p>
+                        <p>Suppose you have a stable quantum computer. Then some complex mathematical problems which are
+                            the cornerstone of the actual encryption methods for data security, become solvable. Many of
+                            the actual security protocols would be breakable in a reasonable amount of time, exposing a
+                            lot of sensitive data.</p>
+                        <p>According to NIST - the US agency for technology standards in the industry, it’s possible
+                            that such a computer could exist by 2030, at the cost of 1 billion dollars.</p>
                     </article>
-                    
+
                     <article class="content-block reveal">
                         <h3>Global Supremacy and Data Privacy</h3>
-                        <p>Anybody with this kind of computer could easily have access to all of your private data, for example read your emails. But the real threat appears if you apply the same logic for businesses and governments. Sensitive information could be exposed to cyberattacks, such as banking credentials or military records.</p>
-                        <p>Post-quantum cryptography (PQC) is at the cornerstone of future technology supremacy. US governments already use it for classified data to maintain their technological advantage. Some countries (France, Canada, UK…) have decided to limit their exportation.</p>
+                        <p>Anybody with this kind of computer could easily have access to all of your private data, for
+                            example read your emails. But the real threat appears if you apply the same logic for
+                            businesses and governments. Sensitive information could be exposed to cyberattacks, such as
+                            banking credentials or military records.</p>
+                        <p>Post-quantum cryptography (PQC) is at the cornerstone of future technology supremacy. US
+                            governments already use it for classified data to maintain their technological advantage.
+                            Some countries (France, Canada, UK…) have decided to limit their exportation.</p>
                     </article>
 
                     <article class="content-block reveal">
                         <h3>Other Applications</h3>
-                        <p>As quantum computing is a research field, it is useful in many cases where massive calculus is necessary. For example, the chemicals industry where molecule simulation is necessary for the discovery of new materials or pharmaceutical drugs. Other examples include vehicle routing, truck loading, lot sizing, or optimizing the flow around aircrafts.</p>
+                        <p>As quantum computing is a research field, it is useful in many cases where massive calculus
+                            is necessary. For example, the chemicals industry where molecule simulation is necessary for
+                            the discovery of new materials or pharmaceutical drugs. Other examples include vehicle
+                            routing, truck loading, lot sizing, or optimizing the flow around aircrafts.</p>
                     </article>
                 </div>
             </div>
@@ -144,13 +193,15 @@
             <div class="container">
                 <h2 class="section-title scramble-text" data-final="Proposed Solutions">Loading...</h2>
                 <div class="grid-3col" data-stagger="true">
-                    
+
                     <div class="card magnetic-card reveal">
                         <div class="card-glow"></div>
                         <div class="card-content">
                             <i data-lucide="cpu" class="icon-accent"></i>
                             <h3>Technical Solutions</h3>
-                            <p>Mathematicians must study new cryptography algorithms for securing communication. NIST has already standardized PQC and urges companies to implement their algorithms as soon as possible.</p>
+                            <p>Mathematicians must study new cryptography algorithms for securing communication. NIST
+                                has already standardized PQC and urges companies to implement their algorithms as soon
+                                as possible.</p>
                         </div>
                     </div>
 
@@ -159,7 +210,9 @@
                         <div class="card-content">
                             <i data-lucide="scale" class="icon-accent"></i>
                             <h3>Legal Solutions</h3>
-                            <p>Make a law for limiting the use of quantum computing to research fields. However, legal solutions are only limitations and could not really ban other countries from quantum supremacy.</p>
+                            <p>Make a law for limiting the use of quantum computing to research fields. However, legal
+                                solutions are only limitations and could not really ban other countries from quantum
+                                supremacy.</p>
                         </div>
                     </div>
 
@@ -168,7 +221,9 @@
                         <div class="card-content">
                             <i data-lucide="shield-check" class="icon-accent"></i>
                             <h3>Individual & Open Source</h3>
-                            <p>Developing tech-free solutions: creating more complex passwords and avoiding exposing private data. Using self-hosted password managers. Financing open source projects by international organizations like the UN to avoid conflicts of interest.</p>
+                            <p>Developing tech-free solutions: creating more complex passwords and avoiding exposing
+                                private data. Using self-hosted password managers. Financing open source projects by
+                                international organizations like the UN to avoid conflicts of interest.</p>
                         </div>
                     </div>
 
@@ -180,22 +235,19 @@
         <section id="reflection" class="section reflection-section">
             <div class="container">
                 <h2 class="section-title scramble-text" data-final="Intercultural & Ethical Perspective">Loading...</h2>
-                
+
                 <div class="reflection-grid">
                     <div class="reflection-block reveal">
                         <h3><i data-lucide="globe"></i> Inequalities & Asymmetric Advantage</h3>
-                        <p>All countries and people won’t have the same access to quantum technology, being the source of several inequalities and risks for those who won’t have it.</p>
-                    </div>
-                    
-                    <div class="reflection-block reveal">
-                        <h3><i data-lucide="leaf"></i> Environmental Issue</h3>
-                        <p>Quantum computing is a complex technology which is gonna need a lot of resources to function. Shouldn’t we change the actual habits of putting a lot of data online on the cloud? (It’s comfortable but comes with a lot of risks).</p>
+                        <p>All countries and people won’t have the same access to quantum technology, being the source
+                            of several inequalities and risks for those who won’t have it.</p>
                     </div>
 
-                    <div class="reflection-block full-width reveal">
-                        <h3><i data-lucide="brain"></i> Final Reflection (Nathan)</h3>
-                        <p><strong>What I learned:</strong> I’ve already heard about quantum computing but I didn’t truly know how it works and it was a great opportunity to learn more about it.</p>
-                        <p><strong>Language progress:</strong> Worked on hedging and signposting.</p>
+                    <div class="reflection-block reveal">
+                        <h3><i data-lucide="leaf"></i> Environmental Issue</h3>
+                        <p>Quantum computing is a complex technology which is gonna need a lot of resources to function.
+                            Shouldn’t we change the actual habits of putting a lot of data online on the cloud? (It’s
+                            comfortable but comes with a lot of risks).</p>
                     </div>
                 </div>
             </div>
@@ -204,7 +256,7 @@
     </main>
 
     <footer>
-        <div class="container footer-content reveal">
+        <div class="container footer-content">
             <p>&copy; 2024 Mathis & Nathan. L2 IT & Management Final Project.</p>
             <p class="minor">Quantum Computing & Post-Quantum Cryptography.</p>
         </div>
@@ -217,4 +269,5 @@
         lucide.createIcons();
     </script>
 </body>
+
 </html>

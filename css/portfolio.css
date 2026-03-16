@@ -164,6 +164,22 @@ a {
   color: var(--color-text-main);
 }
 
+.nav-presentation-link {
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: var(--color-text-muted);
+  margin-left: var(--space-sm);
+  padding: 0.3rem 0.8rem;
+  border: 1px solid var(--card-border);
+  border-radius: 100px;
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.nav-presentation-link:hover {
+  color: var(--color-text-main);
+  border-color: var(--color-primary-quantum);
+}
+
 .nav-links {
   list-style: none;
   display: flex;
@@ -374,16 +390,35 @@ a {
 }
 
 /* Quantum Case Setup */
+.case-intro {
+  margin-bottom: var(--space-xl);
+}
+
+.case-intro h3 {
+  font-size: 2rem;
+  margin-bottom: var(--space-sm);
+}
+
+.case-intro p {
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-sm);
+  font-size: 1.1rem;
+}
+
+.case-intro p.highlight-issue {
+  color: var(--color-text-main);
+  font-size: 1.4rem;
+  font-weight: 500;
+  margin-top: var(--space-md);
+  border-left: 2px solid var(--color-primary-quantum);
+  padding-left: var(--space-sm);
+}
+
 .case-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--space-lg);
   align-items: center;
-}
-
-.case-text h3 {
-  font-size: 2rem;
-  margin-bottom: var(--space-sm);
 }
 .case-text h4 {
   font-size: 1.25rem;
@@ -399,7 +434,10 @@ a {
 /* Qubit Visualizer */
 .qubit-visualizer {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
   gap: var(--space-lg);
   padding: var(--space-md);
   background: var(--card-bg);
@@ -407,30 +445,78 @@ a {
   border-radius: var(--card-radius);
 }
 
+/* Containers for symmetrical alignment */
+.bit-container,
+.qubit-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
 .label {
   display: block;
   font-family: var(--font-family-display);
   font-weight: 500;
-  margin-bottom: var(--space-xs);
   color: var(--color-text-muted);
 }
 
 .state-toggle {
   display: inline-flex;
-  padding: 0.5rem 1rem;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  width: 80px;
+  height: 80px;
   border: 1px solid var(--color-text-muted);
-  border-radius: 4px;
+  border-radius: 50%;
   font-family: monospace;
   font-size: 1.25rem;
 }
 
-.superposition-orb {
+.qubit-orb-wrapper {
+  position: relative;
   width: 80px;
   height: 80px;
+}
+
+.superposition-orb {
+  width: 100%;
+  height: 100%;
   border-radius: 50%;
   background: var(--gradient-neon);
   filter: blur(8px);
   animation: pulse-orb 2s infinite alternate cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.qubit-particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.qubit-particles span {
+  position: absolute;
+  color: var(--color-text-main);
+  font-family: monospace;
+  font-size: 1.2rem;
+  font-weight: bold;
+  opacity: 0;
+  animation: particle-fade 3s infinite ease-in-out;
+}
+
+/* Position and stagger the 0s and 1s */
+.qubit-particles .p1 { top: -10%; left: 10%; animation-delay: 0s; }
+.qubit-particles .p2 { top: 60%; left: 80%; animation-delay: 0.7s; }
+.qubit-particles .p3 { top: 20%; left: 60%; animation-delay: 1.5s; font-size: 0.9rem; }
+.qubit-particles .p4 { top: 70%; left: 20%; animation-delay: 2.2s; font-size: 1.5rem; }
+
+@keyframes particle-fade {
+  0%, 100% { opacity: 0; transform: translateY(5px); }
+  50% { opacity: 0.8; transform: translateY(-5px); }
 }
 
 @keyframes pulse-orb {

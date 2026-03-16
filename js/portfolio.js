@@ -67,14 +67,21 @@ document.addEventListener('DOMContentLoaded', () => {
             const finalX = blob.x + (targetX - blob.x) * 0.02;
             const finalY = blob.y + (targetY - blob.y) * 0.02;
 
-            // Draw blurry blob
-            const gradient = ctx.createRadialGradient(finalX, finalY, 0, finalX, finalY, blob.radius);
-            gradient.addColorStop(0, hexToRgba(blob.color, 0.15));
+            // Draw blurry blob with heartbeat pulse
+            const time = Date.now() * 0.001;
+            // Heartbeat: two quick peaks then a pause (like a real heart)
+            const beat = Math.pow(Math.sin(time * 0.6), 4) + Math.pow(Math.sin(time * 0.6 + 0.4), 4);
+            const pulse = 1 + beat * 0.08; // subtle 8% size pulse
+            const alphaBase = 0.18 + beat * 0.04; // higher base opacity, gentler variation
+
+            const pulsedRadius = blob.radius * pulse;
+            const gradient = ctx.createRadialGradient(finalX, finalY, 0, finalX, finalY, pulsedRadius);
+            gradient.addColorStop(0, hexToRgba(blob.color, alphaBase));
             gradient.addColorStop(1, hexToRgba(blob.color, 0));
             
             ctx.fillStyle = gradient;
             ctx.beginPath();
-            ctx.arc(finalX, finalY, blob.radius, 0, Math.PI * 2);
+            ctx.arc(finalX, finalY, pulsedRadius, 0, Math.PI * 2);
             ctx.fill();
         });
 
@@ -225,55 +232,64 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initialize ScrollTriggers for Text Scramble
     document.querySelectorAll('.section-title.scramble-text').forEach(title => {
-        // Create an instance but don't fire yet
         const fx = new TextScramble(title);
+        const finalText = title.getAttribute('data-final');
+        const parentSection = title.closest('.section');
         
         ScrollTrigger.create({
-            trigger: title,
+            trigger: parentSection,
             start: "top 85%",
-            onEnter: () => fx.setText(title.getAttribute('data-final')),
-            once: true 
+            end: "bottom top",
+            onEnter: () => fx.setText(finalText),
+            onEnterBack: () => fx.setText(finalText),
+            onLeave: () => { title.innerText = 'Loading...'; },
+            onLeaveBack: () => { title.innerText = 'Loading...'; }
         });
     });
 
     // Subtitle & General Reveals (Fade In Up)
     const revealElements = document.querySelectorAll('.reveal');
     
-    // Group elements by their parent containers for staggering
-    const containers = new Set(Array.from(revealElements).map(el => el.parentElement));
+    const staggeredParents = new Set();
+    const individualReveals = [];
 
-    containers.forEach(container => {
-        const children = container.querySelectorAll('.reveal');
+    revealElements.forEach(el => {
+        if (el.parentElement && el.parentElement.getAttribute('data-stagger') === 'true') {
+            staggeredParents.add(el.parentElement);
+        } else {
+            individualReveals.push(el);
+        }
+    });
+
+    staggeredParents.forEach(container => {
+        // Only target direct children to avoid deep nesting issues
+        const children = Array.from(container.children).filter(c => c.classList.contains('reveal'));
         if (children.length === 0) return;
 
-        // Check if container wants staggered animation
-        if (container.getAttribute('data-stagger') === 'true') {
-            gsap.from(children, {
-                scrollTrigger: {
-                    trigger: container,
-                    start: "top 80%",
-                },
-                y: 40,
-                opacity: 0,
-                duration: 0.8,
-                stagger: 0.15,
-                ease: "power3.out"
-            });
-        } else {
-            // Individual reveals
-            children.forEach(child => {
-                gsap.from(child, {
-                    scrollTrigger: {
-                        trigger: child,
-                        start: "top 85%",
-                    },
-                    y: 40,
-                    opacity: 0,
-                    duration: 0.8,
-                    ease: "power3.out"
-                });
-            });
-        }
+        gsap.from(children, {
+            scrollTrigger: {
+                trigger: container,
+                start: "top 80%",
+            },
+            y: 40,
+            opacity: 0,
+            duration: 0.8,
+            stagger: 0.15,
+            ease: "power3.out"
+        });
+    });
+
+    individualReveals.forEach(child => {
+        gsap.from(child, {
+            scrollTrigger: {
+                trigger: child,
+                start: "top 85%",
+            },
+            y: 40,
+            opacity: 0,
+            duration: 0.8,
+            ease: "power3.out"
+        });
     });
 
     // Sticky Nav background change on scroll
@@ -284,6 +300,26 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             nav.classList.remove('scrolled');
         }
+    });
+
+    // On anchor click, instantly reveal all .reveal elements above the target
+    // so they don't stay stuck at opacity 0 when skipping sections
+    document.querySelectorAll('.nav-links a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', (e) => {
+            const targetId = anchor.getAttribute('href');
+            const targetEl = document.querySelector(targetId);
+            if (!targetEl) return;
+
+            const targetTop = targetEl.getBoundingClientRect().top + window.scrollY;
+
+            // Force-reveal all .reveal elements that are above the anchor destination
+            document.querySelectorAll('.reveal').forEach(el => {
+                const elTop = el.getBoundingClientRect().top + window.scrollY;
+                if (elTop < targetTop + window.innerHeight) {
+                    gsap.set(el, { opacity: 1, y: 0 });
+                }
+            });
+        });
     });
 
 });
