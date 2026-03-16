@@ -1,0 +1,546 @@
+/* 
+  Portfolio CSS - Mathis & Nathan
+  Design System: Quantum Flow (Nébuleuse Organique)
+*/
+
+/* ---------------------------------
+   1. Design Tokens (Variables) 
+--------------------------------- */
+:root {
+  /* Colors */
+  --color-bg-deep: #050505;
+  --color-primary-quantum: #8B5CF6;
+  --color-accent-cyan: #06B6D4;
+  --color-text-main: #F3F4F6;
+  --color-text-muted: #9CA3AF;
+  
+  /* Gradients */
+  --gradient-neon: linear-gradient(135deg, var(--color-primary-quantum), var(--color-accent-cyan));
+  
+  /* Typography */
+  --font-family-display: 'HelveticaNow', sans-serif;
+  --font-family-body: 'HelveticaNow', sans-serif; /* Utilizing Helvetica Now Text for body */
+  
+  /* Spacing */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 2rem;
+  --space-lg: 4rem;
+  --space-xl: 8rem;
+  
+  /* Cards */
+  --card-bg: rgba(255, 255, 255, 0.03);
+  --card-border: rgba(255, 255, 255, 0.1);
+  --card-radius: 16px;
+}
+
+/* ---------------------------------
+   2. Reset & Global Styles 
+--------------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth; /* Base fallback, GSAP will handle complex smooth scroll */
+}
+
+body {
+  background-color: var(--color-bg-deep);
+  color: var(--color-text-main);
+  font-family: var(--font-family-body);
+  font-weight: 300;
+  line-height: 1.6;
+  overflow-x: hidden;
+  cursor: none; /* We use a custom cursor */
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-family-display);
+  line-height: 1.2;
+}
+
+a {
+  color: var(--color-text-main);
+  text-decoration: none;
+  cursor: none; /* Maintain custom cursor over links */
+}
+
+/* ---------------------------------
+   3. Custom Cursor 
+--------------------------------- */
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  background-color: var(--color-primary-quantum);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%); /* Centered on mouse */
+  transition: width 0.3s cubic-bezier(0.25, 1, 0.5, 1), 
+              height 0.3s cubic-bezier(0.25, 1, 0.5, 1),
+              background-color 0.3s ease,
+              mix-blend-mode 0.3s ease;
+  mix-blend-mode: screen;
+  box-shadow: 0 0 15px var(--color-primary-quantum);
+}
+
+.custom-cursor.hovering {
+  width: 60px;
+  height: 60px;
+  background-color: rgba(6, 182, 212, 0.3); /* Cyan semi-transparent */
+  mix-blend-mode: color-dodge;
+  border: 1px solid var(--color-accent-cyan);
+  box-shadow: 0 0 25px var(--color-accent-cyan);
+}
+
+/* ---------------------------------
+   4. Background Canvas 
+--------------------------------- */
+#quantum-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* ---------------------------------
+   5. Layout & Navigation 
+--------------------------------- */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-sm);
+}
+
+.section {
+  padding: var(--space-xl) 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.sticky-nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: var(--space-md) 0;
+  z-index: 100;
+  background: transparent;
+  backdrop-filter: blur(0px);
+  transition: background 0.3s ease, backdrop-filter 0.3s ease, padding 0.3s ease;
+}
+
+.sticky-nav.scrolled {
+  background: rgba(5, 5, 5, 0.8);
+  backdrop-filter: blur(12px);
+  padding: var(--space-sm) 0;
+  border-bottom: 1px solid var(--card-border);
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-sm);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-family: var(--font-family-display);
+  font-weight: 700;
+  font-size: 1.5rem;
+  letter-spacing: -0.05em;
+  color: var(--color-text-main);
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: var(--space-md);
+}
+
+.nav-links a {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--gradient-neon);
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--color-text-main);
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* ---------------------------------
+   6. Typography & Text Utilities 
+--------------------------------- */
+.section-title {
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 700;
+  margin-bottom: var(--space-lg);
+  letter-spacing: -0.02em;
+}
+
+.display-title {
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  margin-bottom: var(--space-md);
+  background: linear-gradient(to right, var(--color-text-main), var(--color-text-muted));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  color: var(--color-primary-quantum);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-sm);
+}
+
+/* ---------------------------------
+   7. Buttons
+--------------------------------- */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: 1rem 2rem;
+  background: transparent;
+  color: var(--color-text-main);
+  border: 1px solid var(--card-border);
+  border-radius: 100px;
+  font-weight: 500;
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--gradient-neon);
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.4s ease;
+}
+
+.btn-primary:hover {
+  border-color: transparent;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(139, 92, 246, 0.2);
+}
+
+.btn-primary:hover::before {
+  opacity: 1;
+}
+
+/* ---------------------------------
+   8. Magnetic Cards (Interface Layer 3)
+--------------------------------- */
+.grid-2col {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-md);
+}
+
+.grid-3col {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--space-md);
+}
+
+.magnetic-card {
+  position: relative;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--card-radius);
+  padding: var(--space-md);
+  transform-style: preserve-3d;
+  transition: border-color 0.3s ease;
+  backdrop-filter: blur(10px);
+  cursor: none;
+}
+
+/* The glow effect inside the card following the mouse */
+.card-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 0;
+  /* Background set dynamically via JS */
+}
+
+.magnetic-card:hover {
+  border-color: rgba(139, 92, 246, 0.3);
+}
+
+.magnetic-card:hover .card-glow {
+  opacity: 1;
+}
+
+.card-content {
+  position: relative;
+  z-index: 1;
+  transform: translateZ(30px); /* Pushes content towards user */
+}
+
+.card-content h3 {
+  font-size: 1.5rem;
+  margin-bottom: var(--space-xs);
+  color: var(--color-text-main);
+}
+
+.card-content p {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  margin-bottom: var(--space-sm);
+}
+
+.icon-accent {
+  color: var(--color-accent-cyan);
+  width: 32px;
+  height: 32px;
+  margin-bottom: var(--space-sm);
+}
+
+/* ---------------------------------
+   9. Specific Sections 
+--------------------------------- */
+
+/* Hero */
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding-top: 5vh;
+}
+
+.hero-description {
+  font-size: 1.25rem;
+  color: var(--color-text-muted);
+  max-width: 600px;
+  margin-bottom: var(--space-md);
+}
+
+/* Team */
+.role {
+  color: var(--color-primary-quantum) !important;
+  font-weight: 500;
+  font-size: 0.85rem !important;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Quantum Case Setup */
+.case-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-lg);
+  align-items: center;
+}
+
+.case-text h3 {
+  font-size: 2rem;
+  margin-bottom: var(--space-sm);
+}
+.case-text h4 {
+  font-size: 1.25rem;
+  margin-top: var(--space-md);
+  margin-bottom: var(--space-xs);
+  color: var(--color-primary-quantum);
+}
+.case-text p {
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-sm);
+}
+
+/* Qubit Visualizer */
+.qubit-visualizer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  padding: var(--space-md);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--card-radius);
+}
+
+.label {
+  display: block;
+  font-family: var(--font-family-display);
+  font-weight: 500;
+  margin-bottom: var(--space-xs);
+  color: var(--color-text-muted);
+}
+
+.state-toggle {
+  display: inline-flex;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--color-text-muted);
+  border-radius: 4px;
+  font-family: monospace;
+  font-size: 1.25rem;
+}
+
+.superposition-orb {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: var(--gradient-neon);
+  filter: blur(8px);
+  animation: pulse-orb 2s infinite alternate cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes pulse-orb {
+  0% { transform: scale(1); filter: blur(8px); opacity: 0.7; }
+  100% { transform: scale(1.2); filter: blur(15px); opacity: 1; }
+}
+
+/* Sticky Layout (Analysis) */
+.sticky-layout {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: var(--space-lg);
+  align-items: start;
+}
+
+.sticky-sidebar {
+  position: sticky;
+  top: 15vh;
+}
+
+.content-block {
+  margin-bottom: var(--space-lg);
+  padding-bottom: var(--space-lg);
+  border-bottom: 1px solid var(--card-border);
+}
+
+.content-block h3 {
+  font-size: 2rem;
+  margin-bottom: var(--space-sm);
+}
+
+.content-block p {
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-sm);
+  font-size: 1.1rem;
+}
+
+/* Reflection Section */
+.reflection-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+}
+
+.reflection-block {
+  background: rgba(255,255,255,0.01);
+  padding: var(--space-md);
+  border-left: 2px solid var(--color-accent-cyan);
+}
+
+.reflection-block.full-width {
+  grid-column: 1 / -1;
+  border-left-color: var(--color-primary-quantum);
+}
+
+.reflection-block h3 {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-sm);
+}
+
+.reflection-block p {
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-xs);
+}
+
+/* Footer */
+footer {
+  padding: var(--space-md) 0;
+  text-align: center;
+  border-top: 1px solid var(--card-border);
+}
+
+footer p {
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+}
+
+footer p.minor {
+  font-size: 0.8rem;
+  opacity: 0.5;
+  margin-top: 0.5rem;
+}
+
+/* ---------------------------------
+   10. Media Queries 
+--------------------------------- */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none; /* simple hidden for mobile, could add hamburger */
+  }
+  
+  .case-grid,
+  .sticky-layout,
+  .reflection-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .sticky-sidebar {
+    position: relative;
+    top: 0;
+    margin-bottom: var(--space-md);
+  }
+  
+  .custom-cursor {
+    display: none; /* Disable custom cursor on mobile */
+  }
+  
+  body, a, .magnetic-card {
+    cursor: auto; /* Restore normal cursor on mobile */
+  }
+}
