@@ -603,7 +603,52 @@ footer p.minor {
 }
 
 /* ---------------------------------
-   10. Media Queries 
+   10. Sources Section
+--------------------------------- */
+.sources-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  width: 100%;
+  padding-bottom: var(--space-xl); /* Add extra padding to ensure bottom cards trigger */
+}
+
+.source-card {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-sm) var(--space-md);
+  transition: all 0.3s ease;
+}
+
+.source-card p {
+  margin-bottom: 0;
+}
+
+.source-card a {
+  display: block;
+  width: 100%;
+}
+
+.source-card a:hover {
+  color: var(--color-primary-quantum);
+}
+
+.source-icon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(139, 92, 246, 0.1);
+  color: var(--color-primary-quantum);
+}
+
+/* ---------------------------------
+   11. Media Queries 
 --------------------------------- */
 @media (max-width: 768px) {
   .nav-links {
@@ -628,5 +673,11 @@ footer p.minor {
   
   body, a, .magnetic-card {
     cursor: auto; /* Restore normal cursor on mobile */
+  }
+  
+  .source-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-xs);
   }
 }

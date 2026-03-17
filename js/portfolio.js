@@ -262,14 +262,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     staggeredParents.forEach(container => {
-        // Only target direct children to avoid deep nesting issues
-        const children = Array.from(container.children).filter(c => c.classList.contains('reveal'));
+        // Find all .reveal elements within this container, regardless of nesting depth
+        const children = container.querySelectorAll('.reveal');
         if (children.length === 0) return;
 
         gsap.from(children, {
             scrollTrigger: {
                 trigger: container,
-                start: "top 80%",
+                start: "top 90%", // Trigger slightly earlier for bottom-heavy content
             },
             y: 40,
             opacity: 0,
@@ -283,7 +283,7 @@ document.addEventListener('DOMContentLoaded', () => {
         gsap.from(child, {
             scrollTrigger: {
                 trigger: child,
-                start: "top 85%",
+                start: "top 95%", // Delay even more to ensure triggers fire
             },
             y: 40,
             opacity: 0,
@@ -291,6 +291,11 @@ document.addEventListener('DOMContentLoaded', () => {
             ease: "power3.out"
         });
     });
+
+    // Refresh ScrollTrigger after a slight delay to account for layout shifts
+    setTimeout(() => {
+        ScrollTrigger.refresh();
+    }, 500);
 
     // Sticky Nav background change on scroll
     const nav = document.querySelector('.sticky-nav');
@@ -313,9 +318,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const targetTop = targetEl.getBoundingClientRect().top + window.scrollY;
 
             // Force-reveal all .reveal elements that are above the anchor destination
+            // or strictly contained within the targeted section (fixes issues with tall sections)
             document.querySelectorAll('.reveal').forEach(el => {
                 const elTop = el.getBoundingClientRect().top + window.scrollY;
-                if (elTop < targetTop + window.innerHeight) {
+                if (elTop <= targetTop + window.innerHeight || targetEl.contains(el)) {
                     gsap.set(el, { opacity: 1, y: 0 });
                 }
             });
