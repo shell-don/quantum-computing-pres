@@ -3,6 +3,7 @@
 Ce projet regroupe deux pages web distinctes réalisées dans le cadre d'un projet de fin d'année (L2 IT & Management) par Mathis & Nathan. 
 Il aborde l'informatique quantique et ses implications sur la cybersécurité (cryptographie post-quantique).
 
+disponible ici :  https://shell-don.github.io/quantum-computing-pres/
 ## Structure du Projet
 
 - `portfolio.html` : Une landing page cinématique immersive pour présenter l'équipe et le sujet.
