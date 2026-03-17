@@ -1,6 +1,6 @@
 # Portfolio et Présentation - Informatique Quantique & Cryptographie
 
-Ce projet regroupe deux pages web distinctes réalisées dans le cadre d'un projet de fin d'année en anglais (L2 IT & Management) par Mathis & [Nathan](https://github.com/Nath-Hane). 
+Ce projet regroupe deux pages web distinctes réalisées dans le cadre d'un projet de fin d'année en anglais (L2 IT & Management) par [Mathis](https://github.com/shell-don) & [Nathan](https://github.com/Nath-Hane). 
 Il aborde l'informatique quantique et ses implications sur la cybersécurité (cryptographie post-quantique).
 
 disponible ici :  https://shell-don.github.io/quantum-computing-pres/
