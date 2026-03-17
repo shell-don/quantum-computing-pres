@@ -6,8 +6,8 @@ Il aborde l'informatique quantique et ses implications sur la cybersécurité (c
 disponible ici :  https://shell-don.github.io/quantum-computing-pres/
 ## Structure du Projet
 
-- `portfolio.html` : Une landing page cinématique immersive pour présenter l'équipe et le sujet.
-- `index.html` : Un support visuel animé sous forme de diapositives.
+- `index.html` : Une landing page cinématique immersive pour présenter l'équipe et le sujet.
+- `presentation.html` : Un support visuel animé sous forme de diapositives.
 - `css/` : Fichiers de styles (incluant `webslides.css`, `style.css`, `portfolio.css`).
 - `js/` : Scripts d'animation et de logique (ex: `portfolio.js`, `webslides.min.js`).
 - `assets/` : Ressources graphiques et configuration (favicons, configuration particules).

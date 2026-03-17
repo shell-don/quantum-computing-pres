@@ -83,3 +83,121 @@ p { font-family: 'HelveticaNow', sans-serif;
 #webslides header a:hover {
   opacity: 0.7;
 }
+
+/* --- Classical vs Qubit Visualizer (imported from portfolio.css) --- */
+:root {
+  --color-text-main: #333333;
+  --color-text-muted: #555555;
+  --color-primary-quantum: #8B5CF6;
+  --gradient-neon: linear-gradient(135deg, var(--color-primary-quantum), #06B6D4);
+  --card-bg: rgba(255, 255, 255, 0.03);
+  --card-border: rgba(255, 255, 255, 0.1);
+  --card-radius: 16px;
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 2rem;
+  --space-lg: 4rem;
+}
+
+.presentation-image {
+  max-height: 65vh;
+  width: auto;
+  max-width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  margin: 2rem auto;
+  display: block;
+}
+
+.qubit-visualizer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-lg);
+  padding: var(--space-md);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--card-radius);
+  margin-top: var(--space-md);
+}
+
+.bit-container,
+.qubit-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.label {
+  display: block;
+  font-family: 'HelveticaNow', sans-serif;
+  font-weight: 500;
+  color: var(--color-text-muted);
+}
+
+.state-toggle {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  width: 80px;
+  height: 80px;
+  border: 1px solid var(--color-text-muted);
+  border-radius: 50%;
+  font-family: monospace;
+  font-size: 1.25rem;
+  color: var(--color-text-main);
+}
+
+.qubit-orb-wrapper {
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+
+.superposition-orb {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: var(--gradient-neon);
+  filter: blur(8px);
+  animation: pulse-orb 2s infinite alternate cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.qubit-particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.qubit-particles span {
+  position: absolute;
+  color: var(--color-text-main);
+  font-family: monospace;
+  font-size: 1.2rem;
+  font-weight: bold;
+  opacity: 0;
+  animation: particle-fade 3s infinite ease-in-out;
+}
+
+.qubit-particles .p1 { top: -10%; left: 10%; animation-delay: 0s; }
+.qubit-particles .p2 { top: 60%; left: 80%; animation-delay: 0.7s; }
+.qubit-particles .p3 { top: 20%; left: 60%; animation-delay: 1.5s; font-size: 0.9rem; }
+.qubit-particles .p4 { top: 70%; left: 20%; animation-delay: 2.2s; font-size: 1.5rem; }
+
+@keyframes particle-fade {
+  0%, 100% { opacity: 0; transform: translateY(5px); }
+  50% { opacity: 0.8; transform: translateY(-5px); }
+}
+
+@keyframes pulse-orb {
+  0% { transform: scale(1); filter: blur(8px); opacity: 0.7; }
+  100% { transform: scale(1.2); filter: blur(15px); opacity: 1; }
+}
